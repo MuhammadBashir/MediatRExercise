@@ -11,7 +11,7 @@ using System.Web;
 
 namespace MediatrExercise.PipelineBehaviors
 {
-    public class MediatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, HomeResponse>
+    public class MediatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly ILogger<MediatorBehavior<TRequest, TResponse>> _logger;
         public IEnumerable<IRequestPostProcessor<TRequest, TResponse>> _postProcessors;
@@ -20,9 +20,13 @@ namespace MediatrExercise.PipelineBehaviors
             _postProcessors = postProcessors;
             _logger = logger;
         }
-        public async Task<HomeResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<HomeResponse> next)
+        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var response = await next();
+            var response = await next().ConfigureAwait(false);
+            foreach (var postprocessor in _postProcessors)
+            {
+                await postprocessor.Process(request, response);
+            }
             return response;
         }
     }

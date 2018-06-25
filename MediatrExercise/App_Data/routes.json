@@ -1,0 +1,299 @@
+﻿{
+  "Routes": [
+    {
+      "name": "JavaScriptBundler",
+      "url": "{pathPrefix}/JsBundler",
+      "controller": "JsBundler",
+      "action": "Index"
+    },
+    {
+      "name": "StyleSheetBundler",
+      "url": "{pathPrefix}/CssBundler",
+      "controller": "CssBundler",
+      "action": "Index"
+    },
+    {
+        "name": "CacheInvalidator",
+        "url": "{pathPrefix}/cache/invalidate",
+        "controller": "Cache",
+        "action": "Invalidate"
+    },
+    {
+      "name": "PrivacyPolicy",
+      "url": "{pathPrefix}/privacy",
+      "controller": "Privacy",
+      "action": "Index"
+    },
+    {
+      "name": "TermsOfUse",
+      "url": "{pathPrefix}/terms",
+      "controller": "TermsOfUse",
+      "action": "Index"
+    },
+    {
+      "name": "THANKYOUPAGE_root",
+      "url": "{pathPrefix}/thankyou",
+      "controller": "Thankyou",
+      "action": "Index",
+      "pageType": "THANKYOUPAGE"
+    },
+    {
+      "name": "THANKYOUPAGE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/thankyou",
+      "controller": "Thankyou",
+      "action": "Index",
+      "pageType": "THANKYOUPAGE"
+    },
+    {
+      "name": "HOME_root",
+      "url": "{pathPrefix}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME"
+    },
+    {
+      "name": "HOME_path",
+      "url": "{pathPrefix}/{pathName:path-name}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME"
+    },
+    {
+      "name": "HOME_MAKE_root",
+      "url": "{pathPrefix}/{make:make}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-MAKE"
+    },
+    {
+      "name": "HOME_YEAR_root",
+      "url": "{pathPrefix}/{makeYear:year}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR"
+    },
+    {
+      "name": "HOME_BODYTYPE_root",
+      "url": "{pathPrefix}/{bodyType:body-type}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-BODYTYPE"
+    },
+    {
+      "name": "HOME_MAKE_MODEL_root",
+      "url": "{pathPrefix}/{make:make}/{model:model}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-MAKE-MODEL"
+    },
+    {
+      "name": "HOME_YEAR_MAKE_root",
+      "url": "{pathPrefix}/{makeYear:year}/{make:make}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR-MAKE"
+    },
+    {
+      "name": "HOME_YEAR_MAKE_MODEL_root",
+      "url": "{pathPrefix}/{makeYear:year}/{make:make}/{model:model}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR-MODEL"
+    },
+    {
+      "name": "HOME_BODYTYPE_MAKE_root",
+      "url": "{pathPrefix}/{bodyType:body-type}/{make:make}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-BODYTYPE-MAKE"
+    },
+    {
+      "name": "HOME_BODYTYPE_MAKE_MODEL_root",
+      "url": "{pathPrefix}/{bodyType:body-type}/{make:make}/{model:model}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-BODYTYPE-MAKE-MODEL"
+    },
+    {
+      "name": "HOME_YEAR_BODYTYPE_root",
+      "url": "{pathPrefix}/{makeYear:year}/{bodyType:body-type}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR-BODYTYPE"
+    },
+    {
+      "name": "HOME_MAKE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{make:make}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-MAKE"
+    },
+    {
+      "name": "HOME_YEAR_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{makeYear:year}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR"
+    },
+    {
+      "name": "HOME_BODYTYPE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{bodyType:body-type}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-BODYTYPE"
+    },
+    {
+      "name": "HOME_MAKE_MODEL_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{make:make}/{model:model}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-MAKE-MODEL"
+    },
+    {
+      "name": "HOME_YEAR_MAKE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{makeYear:year}/{make:make}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR-MAKE"
+    },
+    {
+      "name": "HOME_YEAR_MAKE_MODEL_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{makeYear:year}/{make:make}/{model:model}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR-MODEL"
+    },
+    {
+      "name": "HOME_BODYTYPE_MAKE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{bodyType:body-type}/{make:make}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-BODYTYPE-MAKE"
+    },
+    {
+      "name": "HOME_BODYTYPE_MAKE_MODEL_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{bodyType:body-type}/{make:make}/{model:model}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-BODYTYPE-MAKE-MODEL"
+    },
+    {
+      "name": "HOME_YEAR_BODYTYPE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/{makeYear:year}/{bodyType:body-type}",
+      "controller": "Home",
+      "action": "Index",
+      "pageType": "HOME-YEAR-BODYTYPE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_root",
+      "url": "{pathPrefix}/s2/{make:make}/{model:model}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_root",
+      "url": "{pathPrefix}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_YEAR_root",
+      "url": "{pathPrefix}/s2/{make:make}/{model:model}/{makeYear:year}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_YEAR_root",
+      "url": "{pathPrefix}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{makeYear:year}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_BODYTYPE_root",
+      "url": "{pathPrefix}/s2/{make:make}/{model:model}/{bodyType:body-type}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_BODYTYPE_root",
+      "url": "{pathPrefix}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{bodyType:body-type}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_BODYTYPE_YEAR_root",
+      "url": "{pathPrefix}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{bodyType:body-type}/{makeYear:year}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_path",
+      "url": "{pathPrefix}/{pathName:path-name}/s2/{make:make}/{model:model}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_path",
+      "url": "{pathPrefix}/{pathName:path-name}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_YEAR_path",
+      "url": "{pathPrefix}/{pathName:path-name}/s2/{make:make}/{model:model}/{makeYear:year}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_YEAR_path",
+      "url": "{pathPrefix}/{pathName:path-name}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{makeYear:year}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_BODYTYPE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/s2/{make:make}/{model:model}/{bodyType:body-type}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_BODYTYPE_path",
+      "url": "{pathPrefix}/{pathName:path-name}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{bodyType:body-type}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+      "name": "QUOTE_MAKE_MODEL_TRIM_BODYTYPE_YEAR_path",
+      "url": "{pathPrefix}/{pathName:path-name}/s2/{make:make}/{model:model}/{trimVehicle:trim}/{bodyType:body-type}/{makeYear:year}/{zipcode}",
+      "controller": "Quote",
+      "action": "Index",
+      "pageType": "QUOTE"
+    },
+    {
+        "name": "FAS",
+        "url": "{pathPrefix}/fas/{make:make}/{model:model}/{zipcode}",
+        "controller": "Fas",
+        "action": "Index"
+    },
+    {
+        "name": "ErrorNotFound",
+        "url": "{pathPrefix}/{*url}",
+        "controller": "Errors",
+        "action": "NotFound"
+    }
+    
+  ]
+}

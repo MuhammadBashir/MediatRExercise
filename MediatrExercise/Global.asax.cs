@@ -2,6 +2,8 @@
 using Autofac.Integration.Mvc;
 using MediatR;
 using MediatrExercise.AutofacModules;
+using MediatrExercise.Extensions;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +25,17 @@ namespace MediatrExercise
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var builder = new ContainerBuilder();
-            
+
+            var configuration = new ConfigurationBuilder()
+                //.AddJsonFile(Server.MapPath("~/App_Data/routes-admin.json"), optional: false)
+                .AddDefaultConfigurationFiles(Server.MapPath("~/"))
+                .Build();
+
             builder.RegisterModule<AutofacWebTypesModule>();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterModule<MediatorModules>();
+
+            builder.RegisterInstance(configuration).As<IConfiguration>();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

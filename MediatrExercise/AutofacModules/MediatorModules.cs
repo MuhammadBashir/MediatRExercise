@@ -29,9 +29,12 @@ namespace MediatrExercise.AutofacModules
                 .Where(IsAnyMediatorImplementation)
                 .AsImplementedInterfaces()
                 .AsSelf();
+            builder.RegisterModule<LoggingModule>();
 
-
-            builder.RegisterGenericPipeline(typeof(MediatorBehavior<,>));
+            builder.RegisterGenericPipelines(
+                typeof(MediatorPreProcessorsBehavior<,>),
+                typeof(MediatorBehavior<,>)
+                );
             builder.RegisterGenericPostProcessors(typeof(TestOnePostProcessor<,>),
                 typeof(TestTwoPostProcessor<,>));
             builder.RegisterGenericPreProcessors(typeof(TestOnePreprocessor<>),
