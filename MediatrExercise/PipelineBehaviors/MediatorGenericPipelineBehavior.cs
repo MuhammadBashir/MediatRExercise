@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using MediatR.Pipeline;
-using MediatrExercise.Handlers;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,25 +10,19 @@ using System.Web;
 
 namespace MediatrExercise.PipelineBehaviors
 {
-    public class MediatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest: ContactUsRequest
-        where TResponse: ContactUsReponse
+    public class MediatorGenericPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
-        private readonly ILogger<MediatorBehavior<TRequest, TResponse>> _logger;
+        private readonly ILogger<MediatorGenericPipelineBehavior<TRequest, TResponse>> _logger;
         public IEnumerable<IRequestPostProcessor<TRequest, TResponse>> _postProcessors;
-        public MediatorBehavior(IEnumerable<IRequestPostProcessor<TRequest, TResponse>> postProcessors, ILogger<MediatorBehavior<TRequest, TResponse>> logger)
+        public MediatorGenericPipelineBehavior(IEnumerable<IRequestPostProcessor<TRequest, TResponse>> postProcessors, ILogger<MediatorGenericPipelineBehavior<TRequest, TResponse>> logger)
         {
             _postProcessors = postProcessors;
             _logger = logger;
         }
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            _logger.LogDebug("Going Through {0} Behavior", this.GetType().Name);
             var response = await next().ConfigureAwait(false);
-            foreach (var postprocessor in _postProcessors)
-            {
-                await postprocessor.Process(request, response);
-            }
+            _logger.LogDebug("Going Through {0} Behavior", this.GetType().Name);
             return response;
         }
     }

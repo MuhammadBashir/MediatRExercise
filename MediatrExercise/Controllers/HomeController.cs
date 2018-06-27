@@ -31,8 +31,8 @@ namespace MediatrExercise.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+            var request = new ContactUsRequest();
+            var response = _mediator.Send(request);
             return View();
         }
     }

@@ -33,7 +33,8 @@ namespace MediatrExercise.AutofacModules
 
             builder.RegisterGenericPipelines(
                 typeof(MediatorPreProcessorsBehavior<,>),
-                typeof(MediatorBehavior<,>)
+                typeof(MediatorBehavior<,>),
+                typeof(MediatorGenericPipelineBehavior<,>)
                 );
             builder.RegisterGenericPostProcessors(typeof(TestOnePostProcessor<,>),
                 typeof(TestTwoPostProcessor<,>));

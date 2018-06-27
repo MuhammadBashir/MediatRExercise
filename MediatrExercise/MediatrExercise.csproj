@@ -241,10 +241,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\ContactUsHandler.cs" />
+    <Compile Include="Handlers\ContactUsReponse.cs" />
+    <Compile Include="Handlers\ContactUsRequest.cs" />
     <Compile Include="Handlers\HomeRequest.cs" />
     <Compile Include="Handlers\HomeRequestHandler.cs" />
     <Compile Include="Handlers\HomeResponse.cs" />
     <Compile Include="PipelineBehaviors\MediatorBehavior.cs" />
+    <Compile Include="PipelineBehaviors\MediatorGenericPipelineBehavior.cs" />
     <Compile Include="PipelineBehaviors\MediatorPreProcessorsBehavior.cs" />
     <Compile Include="Postprocessors\TestOnePostProcessor.cs" />
     <Compile Include="Postprocessors\TestTwoPostProcessor.cs" />
