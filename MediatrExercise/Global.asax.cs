@@ -1,17 +1,15 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using MediatR;
+using Autofac.Integration.WebApi;
 using MediatrExercise.AutofacModules;
 using MediatrExercise.Extensions;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+
 
 namespace MediatrExercise
 {
@@ -21,24 +19,30 @@ namespace MediatrExercise
         {
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var builder = new ContainerBuilder();
+            var config = GlobalConfiguration.Configuration;
 
             var configuration = new ConfigurationBuilder()
-                //.AddJsonFile(Server.MapPath("~/App_Data/routes-admin.json"), optional: false)
                 .AddDefaultConfigurationFiles(Server.MapPath("~/"))
                 .Build();
 
             builder.RegisterModule<AutofacWebTypesModule>();
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterModule<MediatorModules>();
 
             builder.RegisterInstance(configuration).As<IConfiguration>();
 
             var container = builder.Build();
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
+            GlobalConfiguration.Configure(httpConfig => WebApiConfig.Register(httpConfig));
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
         }
     }
 }
